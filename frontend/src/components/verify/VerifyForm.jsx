@@ -113,7 +113,7 @@ const VerifyForm = () => {
     registerapiresponse,
   } = useContext(multiStepContext);
   const [otp, setOTP] = useState("");
-//console.log(email)
+// console.log(email)
 const navigate = useNavigate();
   const handleSubmitVerify = async (event) => {
     
@@ -124,7 +124,10 @@ const navigate = useNavigate();
         "Access-Control-Allow-Credentials": true,
       })
       .then((response) => {
-        let data = response.data.result.status;
+
+        
+
+        let data = response.data.data.result.status;
         let dataMsg = response.data.data.data;
         if (data === 406) {
           setErrMsg("Invalid OTP");
@@ -160,7 +163,7 @@ const navigate = useNavigate();
         "Access-Control-Allow-Credentials": true,
       })
       .then((response) => {
-        //console.log(response.data.data);
+        // console.log("handleSubmitResendVerify   ----   ",response.data.data);
         let data = response.data.result.status
         if(data === 302){
           swal("OTP sent!", `Please verify to continue, ${response.data.data} try left`, "warning")

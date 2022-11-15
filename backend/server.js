@@ -102,12 +102,12 @@ mongoose.connect(process.env.DATABASE_CONNECT, function (err, res) {
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "*",   //Testing
     // origin: true,
-     origin: ["https://mindschoolbd.com/","https://www.mindschoolbd.com/","mindschoolbd.com"],
+    //  origin: ["https://mindschoolbd.com/","https://www.mindschoolbd.com/","mindschoolbd.com"],    //Production
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
-    exposedHeaders: ['x-auth-token']
+    // exposedHeaders: ['x-auth-token']                //Production
   })
 );
 app.use(
@@ -587,7 +587,7 @@ app.get(
     res.redirect(
       process.env.CLIENT_URL +
         `login?gusername=${userid}&gobject=${JSON.stringify(
-          setSendResponseData
+          responseToSend
         )}&profilename=${userinfo}`
     );
   }
