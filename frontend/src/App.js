@@ -197,13 +197,13 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      fetchData()
-    }, 50000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     fetchData()
+  //   }, 50000);
   
-    return () => clearInterval(interval); 
-  }, [])
+  //   return () => clearInterval(interval); 
+  // }, [])
   
   return (
     <BrowserRouter>
